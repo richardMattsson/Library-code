@@ -17,6 +17,7 @@ const BookDetailsContainer = styled.article`
 
   @media (max-width: 750px) {
     flex-direction: column;
+    padding: 10px;
   }
 `;
 
