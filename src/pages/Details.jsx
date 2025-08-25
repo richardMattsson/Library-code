@@ -151,8 +151,15 @@ export default function Details() {
               )}
 
               <h4 style={{ fontWeight: 'inherit' }}>Länk:</h4>
-              <a href={book.volumeInfo.infoLink}>
-                <u>{book.volumeInfo.infoLink}</u>
+              <a
+                href={book.volumeInfo.infoLink}
+                style={{
+                  display: 'inline-block',
+                  maxWidth: '100%',
+                  overflowWrap: 'break-word',
+                }}
+              >
+                {book.volumeInfo.infoLink}
               </a>
             </label>
           </BookDetailsSection>
