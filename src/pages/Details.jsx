@@ -14,10 +14,16 @@ const BookDetailsContainer = styled.article`
   border-radius: 10px;
   max-width: 1000px;
   display: flex;
+
+  @media (max-width: 750px) {
+    flex-direction: column;
+  }
 `;
 
 const BookDetailsSection = styled.section`
   padding: ${(props) => props.$padding}px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const NoImageDiv = styled.div`
@@ -96,7 +102,9 @@ export default function Details() {
         <BookDetailsContainer>
           <BookDetailsSection $padding={30} aria-labelledby="book-heading">
             <header>
-              <h1 id="book-heading">{book.volumeInfo.title}</h1>
+              <h1 style={{ marginLeft: 0 }} id="book-heading">
+                {book.volumeInfo.title}
+              </h1>
               {book.volumeInfo.authors ? (
                 book.volumeInfo.authors.map((author) => (
                   <h2 key={author}>{author}</h2>
@@ -157,7 +165,7 @@ export default function Details() {
             />
             {book.volumeInfo.imageLinks ? (
               <img
-                style={{ marginTop: '20px' }}
+                style={{ marginTop: '20px', width: 250 }}
                 src={
                   book.volumeInfo.imageLinks.small
                     ? book.volumeInfo.imageLinks.small.replace(
